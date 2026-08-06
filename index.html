@@ -1,1 +1,602 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Test</title></head><body><h1>Hello World</h1></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<meta name="theme-color" content="#2E7D7A">
+<meta name="description" content="德爱经典、荷兰牛栏、可瑞康金装A2、贝拉米经典 4款中端进口1段婴儿配方奶粉深度对比评测，涵盖营养成分、DHA/ARA、益生元、有机认证等全维度PK，附分场景选购建议。">
+<meta name="keywords" content="进口奶粉,经典奶粉,1段奶粉,德爱经典,荷兰牛栏,可瑞康,贝拉米,有机奶粉,奶粉评测">
+<meta property="og:title" content="进口经典奶粉深度对比评测 · 4款中端1段配方奶粉全方位PK">
+<meta property="og:description" content="德爱经典、荷兰牛栏、可瑞康金装A2、贝拉米经典 4款中端进口1段配方奶粉全维度对比。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<title>进口经典奶粉深度对比评测 · 4款中端1段配方奶粉全方位PK</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#F5F7F6;--card:#FFFFFF;--text:#1E2D2B;--sub:#5C7A76;--border:#D8E2E0;
+  --accent:#2E7D7A;--accent2:#1B5E58;
+  --c1:#2E7D7A;--c2:#4A90A4;--c3:#8B6F4E;--c4:#9B6BA8;
+  --radius:14px;--shadow:0 2px 12px rgba(30,45,43,.06);--shadow-lg:0 6px 24px rgba(30,45,43,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#1B5E58 0%,#2E7D7A 40%,#3D8B85 100%);color:#fff;padding:40px 16px 34px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-50px;right:-50px;width:240px;height:240px;background:rgba(255,255,255,.07);border-radius:50%}
+.hero::before{content:'';position:absolute;bottom:-70px;left:-40px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero h1{font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:800;letter-spacing:.5px;margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.12)}
+.hero .subtitle{font-size:clamp(.82rem,2.4vw,.95rem);opacity:.92;margin-bottom:14px;line-height:1.5}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.hero-tags span{background:rgba(255,255,255,.18);padding:5px 14px;border-radius:20px;font-size:.78rem;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12)}
+.hero-meta{margin-top:14px;font-size:.74rem;opacity:.82;line-height:1.6}
+
+/* Nav */
+nav{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap;padding:8px 14px;border-radius:8px;font-size:.85rem;color:var(--sub);text-decoration:none;transition:all .2s;font-weight:500;flex-shrink:0}
+nav a:hover,nav a.active{background:var(--accent);color:#fff}
+
+/* Section */
+section{padding:clamp(20px,4vw,32px) 0}
+.section-title{font-size:clamp(1.1rem,3.5vw,1.35rem);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.section-title .icon{width:6px;height:26px;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:3px;flex-shrink:0}
+.section-desc{font-size:.85rem;color:var(--sub);margin-bottom:18px;line-height:1.6}
+
+/* Source badge */
+.src-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:12px;font-size:.72rem;font-weight:500;margin-left:8px;vertical-align:middle}
+.src-high{background:#E8F5E9;color:#2E7D32}
+.src-mid{background:#FFF3E0;color:#E65100}
+.src-low{background:#FFF8F0;color:#BF6A00}
+
+/* Card */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(14px,3vw,22px);margin-bottom:16px;border:1px solid var(--border)}
+
+/* Product cards */
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.prod-card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);border-top:4px solid var(--accent);transition:transform .2s,box-shadow .2s;min-width:0;position:relative;overflow:hidden}
+.prod-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.prod-card:nth-child(1){border-top-color:var(--c1)}
+.prod-card:nth-child(2){border-top-color:var(--c2)}
+.prod-card:nth-child(3){border-top-color:var(--c3)}
+.prod-card:nth-child(4){border-top-color:var(--c4)}
+.prod-card h3{font-size:clamp(.88rem,2.5vw,1.0rem);margin-bottom:4px;line-height:1.3;font-weight:700}
+.prod-card .brand{font-size:.74rem;color:var(--sub);margin-bottom:10px}
+.prod-card .info-row{display:flex;justify-content:space-between;font-size:.74rem;padding:3px 0;border-bottom:1px dashed var(--border);gap:8px}
+.prod-card .info-row:last-of-type{border:none}
+.prod-card .info-row .val{font-weight:600;color:var(--accent2);text-align:right;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:65%;font-size:.70rem}
+.prod-card .info-row .label{flex-shrink:0;color:var(--sub)}
+.price-tag{display:inline-block;background:linear-gradient(135deg,#E8F5F3,#D0EAE8);color:var(--accent2);padding:3px 12px;border-radius:12px;font-size:.78rem;font-weight:700;margin-top:8px}
+
+/* Chart */
+.chart-box{width:100%;height:400px}
+.chart-box-tall{height:480px}
+@media(max-width:768px){.chart-box{height:340px}.chart-box-tall{height:420px}}
+
+/* Table */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);border:1px solid var(--border);max-height:620px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:.80rem;min-width:560px}
+thead th{background:#E8F0EE;padding:10px 12px;text-align:center;font-weight:600;color:var(--text);position:sticky;top:0;z-index:5;white-space:nowrap}
+thead th:first-child{position:sticky;left:0;z-index:10;background:#E8F0EE;text-align:left;min-width:115px}
+tbody td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap}
+tbody td:first-child{position:sticky;left:0;background:var(--card);text-align:left;font-weight:500;z-index:1;min-width:115px}
+tbody tr:nth-child(even){background:#F8FAF9}
+tbody tr:hover{background:#E8F0EE}
+tbody tr:hover td:first-child{background:#E8F0EE}
+tbody tr:nth-child(even):hover{background:#DCEAE6}
+tbody tr:nth-child(even):hover td:first-child{background:#DCEAE6}
+
+/* Score */
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.score-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--accent);transition:transform .2s}
+.score-card:hover{transform:translateY(-3px)}
+.score-card:nth-child(1){border-top-color:var(--c1)}
+.score-card:nth-child(2){border-top-color:var(--c2)}
+.score-card:nth-child(3){border-top-color:var(--c3)}
+.score-card:nth-child(4){border-top-color:var(--c4)}
+.score-card .name{font-size:.85rem;font-weight:600;margin-bottom:10px;line-height:1.3}
+.score-ring{display:inline-block;position:relative;width:90px;height:90px;margin-bottom:8px}
+.score-ring-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.score-ring-inner .score-val{font-size:1.7rem;font-weight:800;display:block;line-height:1}
+.score-ring-inner .score-unit{font-size:.68rem;color:var(--sub);margin-top:1px}
+.score-card .dims{margin-top:6px;font-size:.72rem;color:var(--sub);line-height:1.5}
+.score-card .dims span{display:inline-block;margin:2px;padding:1px 8px;background:#E8F0EE;border-radius:8px}
+
+/* Badge */
+.badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:600;margin:1px}
+.badge.yes{background:#E8F5E9;color:#2E7D32}
+.badge.no{background:#F5F5F5;color:#BDBDBD}
+.badge.partial{background:#FFF3E0;color:#E65100}
+
+/* Summary */
+.summary-card{display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:12px;margin-bottom:10px;background:var(--card);box-shadow:var(--shadow);border-left:5px solid var(--accent);transition:transform .2s}
+.summary-card:hover{transform:translateX(4px)}
+.summary-card .rank-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.95rem}
+.summary-card .content{flex:1;min-width:0}
+.summary-card .content h4{font-size:.95rem;margin-bottom:4px}
+.summary-card .content p{font-size:.82rem;color:var(--sub);line-height:1.65}
+
+/* Disclaimer */
+.disclaimer{background:#F0F8F6;border:1px solid #C8E0D8;border-radius:var(--radius);padding:18px;font-size:.8rem;color:var(--sub);margin-top:16px;line-height:1.7;word-break:break-word;overflow-wrap:break-word}
+.disclaimer strong{color:var(--accent2)}
+.disclaimer a{word-break:break-all}
+
+/* Source table */
+.src-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius)}
+.src-table{width:100%;border-collapse:collapse;font-size:.78rem;table-layout:fixed}
+.src-table th{background:#E8F0EE;padding:8px 10px;text-align:left;font-weight:600;white-space:nowrap}
+.src-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;word-break:break-word;overflow-wrap:break-word;line-height:1.6}
+.src-table td:first-child{font-weight:600}
+.src-table a{color:var(--accent2);text-decoration:none;word-break:break-all}
+.src-table a:hover{text-decoration:underline}
+
+/* Version tag */
+.version-tag{display:inline-block;background:var(--accent);color:#fff;padding:1px 8px;border-radius:8px;font-size:.7rem;font-weight:600;margin-left:6px;vertical-align:middle}
+
+/* Footer */
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:24px 16px;text-align:center;font-size:.78rem;margin-top:20px;line-height:1.7}
+
+/* To top */
+.totop{position:fixed;right:20px;bottom:20px;width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);cursor:pointer;border:none;font-size:1.2rem;opacity:0;transition:opacity .3s,transform .2s;z-index:99}
+.totop.show{opacity:1}
+.totop:hover{background:var(--accent2);transform:translateY(-3px)}
+
+/* Responsive */
+@media(max-width:1024px){.products-grid{grid-template-columns:repeat(2,1fr)}.score-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.products-grid{grid-template-columns:repeat(2,1fr)}.score-grid{grid-template-columns:repeat(2,1fr)}table{font-size:.74rem}thead th,tbody td{padding:6px 8px}section{padding:24px 0}.prod-card{padding:12px}.score-card{padding:14px}}
+@media(max-width:480px){.products-grid{grid-template-columns:1fr 1fr;gap:8px}.score-grid{grid-template-columns:1fr;gap:10px}.score-ring{width:80px;height:80px}.score-ring-inner{width:64px;height:64px}.score-ring-inner .score-val{font-size:1.5rem}.hero{padding:28px 14px 24px}.hero h1{font-size:1.3rem}.section-title{font-size:1.05rem}.chart-box{height:300px}.chart-box-tall{height:360px}.score-card{padding:14px;display:flex;align-items:center;gap:12px;text-align:left}.score-card .name{margin-bottom:0;flex-shrink:0;width:70px}.score-card .dims{margin-top:0;flex:1}.score-card .dims span{font-size:.66rem;padding:1px 5px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>进口经典奶粉深度对比评测 <span style="font-size:.7rem;opacity:.7;font-weight:400">· 中端价位专场</span></h1>
+    <p class="subtitle">德爱经典 · 荷兰牛栏 · 可瑞康金装A2 · 贝拉米经典 — 四款¥200以下经典进口1段奶粉全维度横评</p>
+    <div class="hero-tags">
+      <span>4款1段配方奶粉</span>
+      <span>¥107-173中端价位</span>
+      <span>含有机认证</span>
+      <span>营养成分全维度PK</span>
+      <span>数据来源可溯源</span>
+    </div>
+    <p class="hero-meta">数据来源：妈妈网(德爱经典)、Nutricia新西兰官网(可瑞康金装A2)、奶粉123(荷兰牛栏)、Bellamy's澳洲官网(贝拉米经典)、京东/天猫跨平台价格复核(2026.08.06)</p>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#overview" class="active">概览</a>
+    <a href="#sources">数据来源</a>
+    <a href="#radar">综合雷达</a>
+    <a href="#nutrition">核心营养</a>
+    <a href="#price">价格对比</a>
+    <a href="#brain">脑眼发育</a>
+    <a href="#immune">免疫成分</a>
+    <a href="#digestive">肠道吸收</a>
+    <a href="#ingredients">添加成分</a>
+    <a href="#table">完整营养表</a>
+    <a href="#score">综合评分</a>
+    <a href="#summary">选购建议</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<section id="overview">
+  <div class="section-title"><span class="icon"></span>产品概览</div>
+  <p class="section-desc">4款中端/经典价位进口1段奶粉核心参数速览。按价格从低到高排列：德爱经典→荷兰牛栏→可瑞康金装A2→贝拉米经典，全在¥200以下。<br><strong>注：剖蓓舒欧盟版(¥283-348)、爱他美领熠(¥385-395)、优博瑞霂(¥366-368)因价格较高，将归入后续高端横评专场。</strong></p>
+  <div class="products-grid" id="productCards"></div>
+</section>
+
+<section id="sources">
+  <div class="section-title"><span class="icon"></span>数据来源与可信度</div>
+  <p class="section-desc">进口奶粉公开营养数据完整性不如国产（尤其跨境版），信息源有官网数据、第三方评测平台、电商商品详情页等。标注了可信度星级和参考标准体系。</p>
+  <div class="src-table-wrap">
+    <table class="src-table">
+      <colgroup><col style="width:14%"><col style="width:24%"><col style="width:14%"><col style="width:10%"><col style="width:38%"></colgroup>
+      <thead><tr><th>产品</th><th>主要数据来源</th><th>数据形式</th><th>可信度</th><th>备注</th></tr></thead>
+      <tbody id="sourceTableBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="radar">
+  <div class="section-title"><span class="icon"></span>综合实力雷达图</div>
+  <p class="section-desc">六维综合评估：自护力、消化吸收、脑眼发育、配方全面性、品牌信赖度、性价比。雷达图越大越均衡。</p>
+  <div class="card"><div class="chart-box" id="radarChart"></div></div>
+</section>
+
+<section id="nutrition">
+  <div class="section-title"><span class="icon"></span>核心营养对比</div>
+  <p class="section-desc">蛋白质、脂肪、碳水化合物三大宏量营养素及能量值对比。注意：不同版本参照标准不同（国标 vs 欧盟 vs 澳新），横向对比仅供大致参考。</p>
+  <div class="card"><div class="chart-box" id="macroChart"></div></div>
+</section>
+
+<section id="price">
+  <div class="section-title"><span class="icon"></span>价格对比</div>
+  <p class="section-desc">以京东/天猫跨境/自营旗舰店实际到手价为准（2026.08.06），单位：元/罐。柱状图展示单罐价格，折线为每克单价。</p>
+  <div class="card"><div class="chart-box-tall" id="priceChart"></div></div>
+</section>
+
+<section id="brain">
+  <div class="section-title"><span class="icon"></span>脑眼发育关键成分</div>
+  <p class="section-desc">DHA、ARA、胆碱、牛磺酸对比。可瑞康金装A2 ARA 141mg+ARA 85mg双双领先。荷兰牛栏DHA/ARA均为83mg紧随其后。贝拉米经典DHA 72mg/ARA 76mg中规中矩。德爱经典DHA严重偏低(仅6.4mg)，需额外补充DHA滴剂。</p>
+  <div class="card"><div class="chart-box" id="brainChart"></div></div>
+</section>
+
+<section id="immune">
+  <div class="section-title"><span class="icon"></span>免疫相关成分</div>
+  <p class="section-desc">HMO、核苷酸、乳铁蛋白含量对比。荷兰牛栏和贝拉米经典分别含HMO（荷兰牛栏为添加型，贝拉米为8种奶源天然原生HMO）。德爱经典含核苷酸29.9mg。4款均不含乳铁蛋白——中端价位普遍特征。贝拉米经典8种原生HMO在自护力维度有独特价值。</p>
+  <div class="card"><div class="chart-box" id="immuneChart"></div></div>
+</section>
+
+<section id="digestive">
+  <div class="section-title"><span class="icon"></span>肠道消化吸收</div>
+  <p class="section-desc">益生元含量、乳清蛋白比例、奶基类型三大维度。4款均不含OPO结构脂和益生菌。可瑞康金装A2 6.0g双益生元领先，德爱经典5.97g紧随其后。可瑞康和贝拉米均为60:40乳清蛋白比，对新生儿肠胃更友好。</p>
+  <div class="card"><div class="chart-box" id="digestiveChart"></div></div>
+</section>
+
+<section id="ingredients">
+  <div class="section-title"><span class="icon"></span>特色添加成分矩阵</div>
+  <p class="section-desc">一目了然看4款产品"有什么、没什么"。✅=有 ⚠️=部分/少量 ❌=无</p>
+  <div class="table-wrap" style="max-height:none">
+    <table id="ingredientMatrix"></table>
+  </div>
+</section>
+
+<section id="table">
+  <div class="section-title"><span class="icon"></span>完整营养成分表</div>
+  <p class="section-desc">每100g奶粉中核心营养成分完整数据。※标注为估算值，基于每100kJ数据换算。<span class="version-tag">单位：/100g</span></p>
+  <div class="table-wrap" id="fullTable"></div>
+</section>
+
+<section id="score">
+  <div class="section-title"><span class="icon"></span>综合评分</div>
+  <p class="section-desc">五维评分（自护力·消化吸收·脑眼发育·配方全面性·性价比），加权综合得分。评分基于中端/经典价位横向对比。</p>
+  <div class="score-grid" id="scoreCards"></div>
+</section>
+
+<section id="summary">
+  <div class="section-title"><span class="icon"></span>分场景选购建议</div>
+  <p class="section-desc">根据宝宝的不同需求，推荐最合适的经典/中端进口奶粉。</p>
+  <div id="recommendations"></div>
+</section>
+
+<div class="disclaimer">
+  <strong>⚠️ 重要免责声明</strong><br><br>
+  <strong>数据来源（v1.3 四产品版）：</strong>
+  ① 德爱经典国行版：妈妈网新国标测评(mama.cn/baby/art/20260510/790857.html)，每100kJ+每100g双列完整数据，可信度★★★；<br>
+  ② 荷兰牛栏HMO版(荷兰版)：奶粉123(naifen123.cn/item-3877.html)+奶粉智库(naifenzhiku.com/detail-4568)，营养数据参照国行Pro版(item-2734)换算，部分※标注，可信度★★☆；<br>
+  ③ 可瑞康金装A2版：Nutricia新西兰官网(nutricia.co.nz/karicare)每100ml官方数据，换算系数7.5，可信度★★★；<br>
+  ④ 贝拉米经典有机版：Bellamy's澳洲官网+ebaoguo每100ml官方数据，换算系数约7.1(1勺≈8.4g+60mL水)，可信度★★★。<br><br>
+  <strong>价格来源（2026.08.06 京东/天猫跨平台复核）：</strong>德爱经典跨境¥107-150(历史最低¥107.10)/国行¥220-255、荷兰牛栏跨境¥134-165、可瑞康金装A2跨境¥146-173、贝拉米经典跨境¥154-164。抖音商城和拼多多数据未完整获取（部分SKU缺货）。<br><br>
+  <strong>标准差异提醒：</strong>跨境版（荷兰牛栏荷兰版HMO、可瑞康新西兰版金装A2、贝拉米经典澳洲版）遵循产地国标准非中国GB 10765-2021，部分营养素上限/下限与国标有差异。国行版（德爱经典国行版）已通过中国新国标注册。<br><br>
+  <strong>换算说明：</strong>可瑞康、贝拉米官方数据为每100ml冲调液含量，分别按各自冲调比例换算为每100g值，已标注换算系数。荷兰牛栏部分数据基于每100kJ×能量系数反推为每100g值，已标注※号。<br><br>
+  <strong>价格分类说明：</strong>本期定位"中端/经典"（¥107-173），剖蓓舒欧盟版(¥283-348)、爱他美领熠(¥385-395)、优博瑞霂(¥366-368)因价格已超中端线，归入后续高端专场横评。<br><br>
+  <strong>本页面仅供消费者参考，不构成购买建议。每个宝宝体质不同，请在医生或营养师指导下选择奶粉。</strong>母乳是婴儿最理想的食物。
+</div>
+</div>
+
+<footer>
+  <p>进口经典奶粉1段深度对比评测 · 中端价位专场 · 2026.08.06 · 数据来源均已注明 · 供参考不构成购买建议</p>
+  <p style="margin-top:8px;opacity:.7">母乳是婴儿最好的食物。世界卫生组织建议纯母乳喂养至少至宝宝6个月。</p>
+</footer>
+
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ===== DATA =====
+var PRODS=[
+  {id:'deai',name:'德爱经典',short:'德爱经典',brand:'爱他美/Aptamil · 达能纽迪希亚',group:'达能系',spec:'800g(国行)/800g(德版)',price:'跨境¥107-150 / 国行¥220-255',pricePerG:0.18,priceLow:0.13,priceHigh:0.32,origin:'德国/欧洲',version:'国行版(YP20175022)/德版(跨境)',energy:2064,
+   highlights:'欧洲黄金奶源·益生元GOS+FOS·鲜奶奶基·DHA偏低(6.4mg/100g)'},
+  {id:'niulan',name:'荷兰牛栏',short:'荷兰牛栏',brand:'Nutrilon/诺优能 · 达能纽迪希亚',group:'达能系',spec:'800g',price:'约¥134-165',pricePerG:0.19,priceLow:0.17,priceHigh:0.21,origin:'荷兰',version:'荷兰版HMO(跨境)',
+   highlights:'荷兰鲜奶·HMO益生元·DHA 83mg/100g·核苷酸+牛磺酸齐全'},
+  {id:'kkl',name:'可瑞康金装A2',short:'可瑞康金装A2',brand:'Karicare · 达能纽迪希亚',group:'达能系',spec:'900g',price:'约¥146-173',pricePerG:0.18,priceLow:0.16,priceHigh:0.19,origin:'新西兰',version:'新西兰版金装A2(跨境)',
+   highlights:'新西兰A2草饲奶源·DHA 85mg·ARA 141mg·双益生元6.0g·60:40乳清蛋白'},
+  {id:'blm',name:'贝拉米经典',short:'贝拉米经典',brand:"Bellamy's Organic · 蒙牛旗下",group:'澳洲有机系',spec:'800g',price:'约¥154-164',pricePerG:0.20,priceLow:0.19,priceHigh:0.21,origin:'澳大利亚',version:'澳洲版(跨境)·有机双认证',
+   highlights:'澳洲有机双认证·8种原生HMO·GOS+FOS益生元·有机全脂牛奶·60:40乳清蛋白'},
+];
+
+// Nutrition data per 100g — 4 products (2026.08.06复核,贝拉米新增)
+var N={
+ energy:[2064,2060,2070,2000],
+ protein:[10.32,10.3,10.5,10.0],
+ fat:[26.83,26.8,25.5,24.1],
+ carbs:[49.54,49.4,52.5,54.0],
+ dha:[6.4,83,85,72],
+ ara:[6.4,83,141,76],
+ choline:[null,96,86,56],
+ taurine:[35.91,35.8,36.8,0],
+ lactoferrin:[0,0,0,0],
+ opo:[0,0,0,0],
+ nucleotides:[29.93,23.9,null,0],
+ prebiotics:[5.97,4.5,6.0,2.1],
+ probiotics:[false,false,false,false],
+ hmo:[false,'✅(HMO版)',false,'8种原生HMO'],
+ calcium:[454,453,563,419],
+ iron:[4.75,4.12,6.0,5.5],
+ zinc:[4.54,3.91,3.68,5.3],
+ vita:[392,391,503,490],
+ vitd:[7.02,7.0,9.0,7.1],
+ vitc:[80.91,64.9,112,103]
+};
+
+// Radar scores (0-10) — 自护力·消化吸收·脑眼发育·配方全面·品牌信赖·性价比
+var radarScores=[
+ {name:'德爱经典',values:[3.5,6.5,3.0,5.0,8.0,9.5]},
+ {name:'荷兰牛栏',values:[4.0,6.5,7.5,6.5,8.0,8.5]},
+ {name:'可瑞康金装A2',values:[4.0,7.0,8.0,6.5,7.5,9.0]},
+ {name:'贝拉米经典',values:[5.0,6.5,4.5,6.5,7.5,8.0]}
+];
+
+// Feature matrix — 4 products
+var ingredientMatrix=[
+ ['DHA','✅<br><small>6.4mg(低)</small>','✅<br><small>83mg</small>','✅<br><small>85mg</small>','✅<br><small>72mg</small>'],
+ ['ARA','✅<br><small>6.4mg(低)</small>','✅<br><small>83mg</small>','✅<br><small>141mg</small>','✅<br><small>76mg</small>'],
+ ['OPO结构脂','❌','❌','❌','❌'],
+ ['乳铁蛋白','❌','❌','❌','❌'],
+ ['核苷酸','✅<br><small>29.9mg</small>','✅<br><small>23.9mg</small>','❌<br><small>未标注</small>','❌'],
+ ['HMO','❌','✅<br><small>HMO版</small>','❌','✅<br><small>8种原生</small>'],
+ ['益生元','✅<br><small>GOS+多聚<br>5.97g</small>','✅<br><small>GOS+FOS<br>4.5g</small>','✅<br><small>scGOS+lcFOS<br>6.0g</small>','✅<br><small>GOS+FOS<br>2.1g</small>'],
+ ['益生菌','❌','❌','❌','❌'],
+ ['牛磺酸','✅<br><small>35.9mg</small>','✅<br><small>35.8mg</small>','✅<br><small>36.8mg</small>','❌'],
+ ['有机认证','❌','❌','❌','✅<br><small>NASAA+ACO<br>澳洲双认证</small>'],
+ ['MFGM乳脂球膜','❌','❌','❌','❌'],
+ ['叶黄素','❌','❌','❌','❌'],
+ ['天然乳脂','❌','❌','❌','✅<br><small>有机全脂牛奶</small>'],
+ ['高乳清蛋白','❌','❌','✅<br><small>60:40</small>','✅<br><small>60:40</small>'],
+];
+
+// Overall scores
+var overallScores=[
+ {name:'德爱经典',total:5.7,dims:'自护力3.5·消化6.5·脑眼3.0·配方5.0·品牌8.0·性价比9.5',tag:'极致性价比',highlights:'跨境最低¥107/罐，达能经典入门款。GOS+多聚果糖益生元5.97g(4款最高)、核苷酸29.9mg。致命短板：DHA仅6.4mg/100g，自护力垫底，需额外补充DHA。'},
+ {name:'荷兰牛栏',total:6.9,dims:'自护力4.0·消化6.5·脑眼7.5·配方6.5·品牌8.0·性价比8.5',tag:'均衡实用派',highlights:'HMO版DHA 83mg/ARA 83mg，脑眼维度扎实。荷兰鲜奶+HMO+核苷酸+牛磺酸齐全。¥134-165，各方面没明显短板，闭眼买不出错。'},
+ {name:'可瑞康金装A2',total:7.0,dims:'自护力4.0·消化7.0·脑眼8.0·配方6.5·品牌7.5·性价比9.0',tag:'脑眼&消化双冠',highlights:'DHA 85mg/ARA 141mg(4款最高)！新西兰A2草饲奶源+双益生元6.0g+60:40乳清蛋白。脑眼+消化双双领先，¥146-173性价比极佳。'},
+ {name:'贝拉米经典',total:6.3,dims:'自护力5.0·消化6.5·脑眼4.5·配方6.5·品牌7.5·性价比8.0',tag:'天然有机派',highlights:'唯一有机双认证(NASAA+ACO)！8种原生HMO+GOS+FOS益生元+有机全脂牛奶。短板：不含牛磺酸和核苷酸，DHA 72mg/ARA 76mg中规中矩。适合注重有机纯净喂养的家庭。'}
+];
+
+// Recommendations
+var recommendations=[
+ {rank:1,color:'#2E7D7A',title:'极致性价比 · 基础喂养首选 — 德爱经典',
+  text:'跨境版京东全球购最低¥107/罐。达能纽迪希亚百年配方底蕴，GOS+多聚果糖益生元5.97g(4款最高)、核苷酸29.9mg、牛磺酸35.9mg基础强化齐全。鲜奶奶基品质可靠。但最大短板是DHA仅6.4mg/100g——在4款中脑眼维度垫底。如果选德爱经典，务必额外补充DHA滴剂。预算有限且愿意自行补充DHA的家庭首选。'},
+ {rank:2,color:'#4A90A4',title:'均衡无短板 · 闭眼买不出错 — 荷兰牛栏HMO版',
+  text:'京东全球购¥134-165。HMO版添加了HMO益生元，DHA 83mg/ARA 83mg，核苷酸23.9mg、牛磺酸35.8mg齐全。荷兰鲜奶奶源，达能纽迪希亚荷兰国民品牌，100+年历史。配方不算"堆料"但每项都在中上水平，4款中最全面的"水桶型"选手。与德爱经典同属达能系，渠道丰富、转奶方便。'},
+ {rank:3,color:'#8B6F4E',title:'脑眼最强 · 天然A2草饲 — 可瑞康金装A2',
+  text:'京东全球购¥146-173。DHA 85mg、ARA 141mg(4款最高，是德爱经典的22倍！)、双益生元scGOS+lcFOS共6.0g。新西兰A2β-酪蛋白草饲奶源，60:40乳清蛋白比，对小月龄宝宝肠胃更友好。脑眼+消化双维度领先4款。缺点是核苷酸未在新西兰官方营养表中标注，配方透明度不如国行版。适合重视脑眼发育和天然奶源的家庭。'},
+ {rank:4,color:'#9B6BA8',title:'纯净有机 · 天然无添加 — 贝拉米经典',
+  text:'京东全球购¥154-164。4款中唯一获得NASAA+ACO澳洲有机双认证的奶粉！牧场不使用化学农药/化肥/抗生素/激素，配方不使用人工香料/色素/防腐剂。升级版含8种原生HMO（奶源天然含有非人工添加），GOS+FOS益生元组合，有机全脂牛奶提供天然乳脂。但营养数据不是它的长项：DHA 72mg/ARA 76mg中规中矩，不含牛磺酸和核苷酸。适合把"有机纯净"放在第一位、认为天然比堆料更重要的家长。'}
+];
+
+// ===== SOURCE TABLE =====
+var sourceRows=[
+ ['德爱经典<br>(国行版)','妈妈网新国标测评<br><a href="https://www.mama.cn/baby/art/20260510/790857.html" target="_blank">mama.cn/790857</a><br>京东全球购(跨境价)','每100kJ+每100g双列','★★★','mama.cn完整28项数据。价格：京东全球购跨境¥107-150(历史最低¥107.10)，国行版京东自营¥220-230，天猫¥255。'],
+ ['荷兰牛栏<br>(HMO版荷兰版)','naifen123+naifenzhiku<br><a href="https://naifen123.cn/item-3877.html" target="_blank">naifen123/3877</a><br><a href="https://naifenzhiku.com/powder/detail-4568.html" target="_blank">naifenzhiku/4568</a>','每100kJ(国行Pro版参照)','★★☆','京东实际售卖HMO版，营养数据参照国行Pro版(item-2734)换算(×20.6)。HMO版具体营养值未公开逐项标注，部分值※估算。价格：京东全球购¥134-165。'],
+ ['可瑞康<br>(金装A2版)','Nutricia新西兰官网<br><a href="https://nutricia.co.nz/karicare/products/karicare-gold-milk-infant-formula-stage-1" target="_blank">nutricia.co.nz</a>','每100ml(官方)','★★★','官方发布每100ml冲调液完整营养表。换算系数7.5(1勺7.3g+50mL水=55mL奶液→100mL=13.27g粉)。v1.1复核修正：从普装版切换为金装A2版(京东实际在售版本)。价格：京东全球购¥146-173。'],
+ ['贝拉米经典<br>(有机版)','Bellamy\'s澳洲官网+ebaoguo<br><a href="https://bellamysorganic.cn" target="_blank">bellamysorganic.cn</a><br><a href="https://shop.ebaoguo.com/product/bellamys-infant-formula-stage-1-800g" target="_blank">ebaoguo.com</a>','每100ml(官方)','★★★','官方每100ml冲调液完整营养表。换算系数约7.1(1勺≈8.4g+60mL水)。新版含8种原生HMO。价格：京东全球购¥154-164(促销可到¥154)。']
+];
+
+// ===== RENDER =====
+// Product cards
+var grid=document.getElementById('productCards');
+var colors=['#2E7D7A','#4A90A4','#8B6F4E','#9B6BA8'];
+PRODS.forEach(function(p,i){
+ grid.innerHTML+='<div class="prod-card">'+
+  '<h3>'+p.name+'</h3>'+
+  '<div class="brand">'+p.brand+'</div>'+
+  '<div class="info-row"><span class="label">规格</span><span class="val">'+p.spec+'</span></div>'+
+  '<div class="info-row"><span class="label">产地/奶源</span><span class="val">'+p.origin+'</span></div>'+
+  '<div class="info-row"><span class="label">版本</span><span class="val">'+p.version+'</span></div>'+
+  '<div class="info-row"><span class="label">亮点</span><span class="val" style="font-size:.65rem;white-space:normal">'+p.highlights+'</span></div>'+
+  '<span class="price-tag">'+p.price+'</span>'+
+  '</div>';
+});
+
+// Source table
+var stb=document.getElementById('sourceTableBody');
+sourceRows.forEach(function(r){
+ stb.innerHTML+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td>'+r[4]+'</td></tr>';
+});
+
+// ===== CHARTS (ECharts) =====
+var isMobile=window.innerWidth<768;
+var textColor='#5C7A76';
+var prodNames=PRODS.map(function(p){return p.short;});
+var radarIndicators=[
+ {name:'性价比',max:10},{name:'品牌信赖',max:10},{name:'配方全面',max:10},
+ {name:'脑眼发育',max:10},{name:'消化吸收',max:10},{name:'自护力',max:10}
+];
+
+// Radar
+var rc=echarts.init(document.getElementById('radarChart'));
+rc.setOption({
+ tooltip:{},
+ legend:{data:prodNames,bottom:0,textStyle:{color:textColor,fontSize:11}},
+ radar:{indicator:radarIndicators,center:['50%','50%'],radius:'62%',axisName:{color:textColor,fontSize:11,borderRadius:3,padding:[3,5]}},
+ series:[{type:'radar',data:radarScores.map(function(r,i){return {value:r.values,name:r.name,areaStyle:{color:colors[i],opacity:.08},lineStyle:{color:colors[i],width:2},itemStyle:{color:colors[i]}};})}]
+});
+
+// Macro nutrition
+var mc=echarts.init(document.getElementById('macroChart'));
+mc.setOption({
+ tooltip:{trigger:'axis'},
+ legend:{data:['蛋白质(g)','脂肪(g)','碳水化合物(g)'],bottom:0,textStyle:{color:textColor,fontSize:11}},
+ grid:{left:60,right:60,bottom:50,top:20},
+ xAxis:{type:'category',data:prodNames,axisLabel:{rotate:isMobile?30:0,fontSize:10,color:textColor}},
+ yAxis:{type:'value',name:'g/100g',nameTextStyle:{color:textColor}},
+ series:[
+  {name:'蛋白质(g)',type:'bar',data:N.protein,itemStyle:{color:colors[0]},barGap:'10%'},
+  {name:'脂肪(g)',type:'bar',data:N.fat,itemStyle:{color:colors[1]}},
+  {name:'碳水化合物(g)',type:'bar',data:N.carbs,itemStyle:{color:colors[2]}}
+ ]
+});
+
+// Price chart
+var pc=echarts.init(document.getElementById('priceChart'));
+pc.setOption({
+ tooltip:{trigger:'axis'},
+ legend:{data:['单罐价格(元)','每克单价(元/g)'],bottom:0,textStyle:{color:textColor,fontSize:11}},
+ grid:{left:60,right:60,bottom:50,top:20},
+ xAxis:{type:'category',data:prodNames,axisLabel:{rotate:isMobile?30:0,fontSize:10,color:textColor}},
+ yAxis:[
+  {type:'value',name:'元/罐',nameTextStyle:{color:textColor}},
+  {type:'value',name:'元/g',nameTextStyle:{color:textColor}}
+ ],
+ series:[
+  {name:'单罐价格(元)',type:'bar',data:[128,150,160,159],itemStyle:{color:colors[0]},barGap:'10%',label:{show:true,position:'top',fontSize:10,color:textColor}},
+  {name:'每克单价(元/g)',type:'line',yAxisIndex:1,data:PRODS.map(function(p){return p.pricePerG;}),itemStyle:{color:'#D4737A'},lineStyle:{width:3},symbol:'circle',symbolSize:8}
+ ]
+});
+
+// Brain chart
+var bc=echarts.init(document.getElementById('brainChart'));
+bc.setOption({
+ tooltip:{trigger:'axis'},
+ legend:{data:['DHA(mg)','ARA(mg)','胆碱(mg)','牛磺酸(mg)'],bottom:0,textStyle:{color:textColor,fontSize:11}},
+ grid:{left:60,right:20,bottom:50,top:20},
+ xAxis:{type:'category',data:prodNames,axisLabel:{rotate:isMobile?30:0,fontSize:10,color:textColor}},
+ yAxis:{type:'value',name:'mg/100g',nameTextStyle:{color:textColor}},
+ series:[
+  {name:'DHA(mg)',type:'bar',data:N.dha,itemStyle:{color:colors[0]},barGap:'5%'},
+  {name:'ARA(mg)',type:'bar',data:N.ara,itemStyle:{color:colors[1]}},
+  {name:'胆碱(mg)',type:'bar',data:N.choline,itemStyle:{color:colors[3]}},
+  {name:'牛磺酸(mg)',type:'bar',data:N.taurine,itemStyle:{color:'#6B9B5A'}}
+ ]
+});
+
+// Immune chart
+var ic=echarts.init(document.getElementById('immuneChart'));
+ic.setOption({
+ tooltip:{trigger:'axis'},
+ legend:{data:['乳铁蛋白(mg)','核苷酸(mg)'],bottom:0,textStyle:{color:textColor,fontSize:11}},
+ grid:{left:60,right:20,bottom:50,top:20},
+ xAxis:{type:'category',data:prodNames,axisLabel:{rotate:isMobile?30:0,fontSize:10,color:textColor}},
+ yAxis:{type:'value',name:'mg/100g',nameTextStyle:{color:textColor}},
+ series:[
+  {name:'乳铁蛋白(mg)',type:'bar',data:N.lactoferrin,itemStyle:{color:colors[3]},barGap:'10%'},
+  {name:'核苷酸(mg)',type:'bar',data:N.nucleotides,itemStyle:{color:colors[1]}}
+ ]
+});
+
+// Digestive chart
+var dc=echarts.init(document.getElementById('digestiveChart'));
+dc.setOption({
+ tooltip:{trigger:'axis'},
+ legend:{data:['益生元(g)'],bottom:0,textStyle:{color:textColor,fontSize:11}},
+ grid:{left:60,right:60,bottom:50,top:20},
+ xAxis:{type:'category',data:prodNames,axisLabel:{rotate:isMobile?30:0,fontSize:10,color:textColor}},
+ yAxis:{type:'value',name:'g/100g',nameTextStyle:{color:textColor}},
+ series:[
+  {name:'益生元(g)',type:'bar',data:N.prebiotics,itemStyle:{color:'#6B9B5A'},barGap:'10%',label:{show:true,position:'top',fontSize:10,color:textColor}}
+ ]
+});
+
+// Ingredient matrix
+var im=document.getElementById('ingredientMatrix');
+var hdr='<thead><tr><th>成分</th>';
+PRODS.forEach(function(p,i){ hdr+='<th style="color:'+colors[i]+'">'+p.short+'</th>'; });
+hdr+='</tr></thead><tbody>';
+ingredientMatrix.forEach(function(row){
+ hdr+='<tr>';
+ row.forEach(function(cell,j){
+  if(j===0) hdr+='<td>'+cell+'</td>';
+  else {
+   hdr+='<td>'+cell+'</td>';
+  }
+ });
+ hdr+='</tr>';
+});
+hdr+='</tbody>';
+im.innerHTML=hdr;
+
+// Full nutrition table
+var ft=document.getElementById('fullTable');
+var nutriRows=[
+ ['能量(kJ)',N.energy],
+ ['蛋白质(g)',N.protein],
+ ['脂肪(g)',N.fat],
+ ['碳水化合物(g)',N.carbs],
+ ['DHA(mg)',N.dha],
+ ['ARA(mg)',N.ara],
+ ['胆碱(mg)',N.choline],
+ ['牛磺酸(mg)',N.taurine],
+ ['乳铁蛋白(mg)',N.lactoferrin],
+ ['OPO(g)',N.opo],
+ ['核苷酸(mg)',N.nucleotides],
+ ['益生元(g)',N.prebiotics],
+ ['钙(mg)',N.calcium],
+ ['铁(mg)',N.iron],
+ ['锌(mg)',N.zinc],
+ ['维生素A(μg)',N.vita],
+ ['维生素D(μg)',N.vitd],
+ ['维生素C(mg)',N.vitc],
+];
+var ftHdr='<table><thead><tr><th>营养素(每100g)</th>';
+PRODS.forEach(function(p,i){ ftHdr+='<th style="color:'+colors[i]+'">'+p.short+'</th>'; });
+ftHdr+='</tr></thead><tbody>';
+nutriRows.forEach(function(row){
+ ftHdr+='<tr><td>'+row[0]+'</td>';
+ row[1].forEach(function(v,i){
+  ftHdr+='<td>'+(v===null?'—':v===false?'❌':v===true?'✅':v)+'</td>';
+ });
+ ftHdr+='</tr>';
+});
+ftHdr+='</tbody></table>';
+ft.innerHTML=ftHdr;
+
+// Score cards
+var sc=document.getElementById('scoreCards');
+overallScores.forEach(function(s,i){
+ var deg=s.total/10*360;
+ sc.innerHTML+='<div class="score-card">'+
+  '<div class="name">'+s.name+'<br><span style="font-size:.7rem;color:'+colors[i]+'">'+s.tag+'</span></div>'+
+  '<div class="score-ring" style="background:conic-gradient('+colors[i]+' '+deg+'deg,#E8F0EE '+deg+'deg)">'+
+  '<div class="score-ring-inner"><span class="score-val">'+s.total.toFixed(1)+'</span><span class="score-unit">/10</span></div></div>'+
+  '<div class="dims">'+s.dims.split('·').map(function(d){return '<span>'+d.trim()+'</span>';}).join('')+'</div>'+
+  '<div style="margin-top:6px;font-size:.7rem;color:var(--sub);line-height:1.4">'+s.highlights+'</div>'+
+  '</div>';
+});
+
+// Recommendations
+var rec=document.getElementById('recommendations');
+recommendations.forEach(function(r){
+ rec.innerHTML+='<div class="summary-card" style="border-left-color:'+r.color+'">'+
+  '<div class="rank-num" style="background:'+r.color+'">'+r.rank+'</div>'+
+  '<div class="content"><h4>'+r.title+'</h4><p>'+r.text+'</p></div></div>';
+});
+
+// ===== NAV + TOTOP =====
+var navLinks=document.querySelectorAll('nav a');
+var sections=document.querySelectorAll('section');
+window.addEventListener('scroll',function(){
+ var scrollY=window.scrollY+80;
+ sections.forEach(function(sec){
+  var top=sec.offsetTop,bottom=top+sec.offsetHeight;
+  if(scrollY>=top&&scrollY<bottom){
+   var id=sec.getAttribute('id');
+   navLinks.forEach(function(a){a.classList.remove('active');if(a.getAttribute('href')==='#'+id)a.classList.add('active');});
+  }
+ });
+ document.getElementById('totop').classList.toggle('show',window.scrollY>400);
+});
+
+navLinks.forEach(function(a){
+ a.addEventListener('click',function(e){
+  e.preventDefault();
+  var target=document.querySelector(this.getAttribute('href'));
+  if(target)target.scrollIntoView({behavior:'smooth'});
+ });
+});
+
+// Responsive resize
+window.addEventListener('resize',function(){
+ isMobile=window.innerWidth<768;
+ [rc,mc,pc,bc,ic,dc].forEach(function(c){c.resize();});
+});
+</script>
+</body>
+</html>
